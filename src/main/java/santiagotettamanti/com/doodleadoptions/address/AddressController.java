@@ -1,6 +1,7 @@
 package santiagotettamanti.com.doodleadoptions.address;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +14,12 @@ public class AddressController {
         this.addressService = addressService;
     }
 
+    @GetMapping ("/address")
+    public Address getAllAddresses() {
+        return AddressService
+    }
     @PostMapping ("/address")
     public Address createAddress(@RequestBody Address address) {
-        return null;
+        return AddressService
     }
-
 }
