@@ -1,7 +1,7 @@
 package santiagotettamanti.com.doodleadoptions.pet;
 
 public class Pet {
-    private int petId;
+    private Integer petId;
     private String petName;
     private String animalType;
     private String shelterName;
