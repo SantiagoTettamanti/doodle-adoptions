@@ -1,6 +1,13 @@
 package santiagotettamanti.com.doodleadoptions.address;
 
+import jakarta.persistence.*;
+
+@Table
+@Entity
 public class Address {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
     private String street;
     private String city;
     private String state;
