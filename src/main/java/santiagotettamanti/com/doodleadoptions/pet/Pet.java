@@ -1,6 +1,13 @@
 package santiagotettamanti.com.doodleadoptions.pet;
 
+import jakarta.annotation.Generated;
+import jakarta.persistence.*;
+
+@Table
+@Entity
 public class Pet {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer petId;
     private String petName;
     private String animalType;
