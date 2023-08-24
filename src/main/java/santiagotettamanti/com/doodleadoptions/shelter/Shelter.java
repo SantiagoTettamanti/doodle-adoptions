@@ -1,7 +1,13 @@
 package santiagotettamanti.com.doodleadoptions.shelter;
 
+import jakarta.persistence.*;
+
+@Table
+@Entity
 public class Shelter {
-    private int shelterId;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer shelterId;
     private String phoneNumber;
 
     public int getShelterId() {
