@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class AddressController {
     private final AddressService addressService;
@@ -15,11 +17,11 @@ public class AddressController {
     }
 
     @GetMapping ("/address")
-    public Address getAllAddresses() {
-        return AddressService
+    public List<Address> getAllAddresses() {
+        return addressService.getAllAddresses();
     }
     @PostMapping ("/address")
     public Address createAddress(@RequestBody Address address) {
-        return AddressService
+        return addressService.createAddress(address);
     }
 }
