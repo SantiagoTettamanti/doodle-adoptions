@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PetService {
@@ -16,6 +17,15 @@ public class PetService {
 
     public List<Pet> getAllPets() {
         return petRepository.findAll();
+    }
+
+    public Pet getPetById(Integer id) {
+        Optional<Pet> petFound = petRepository.findById(id);
+        if (petFound.isPresent()) {
+            return petFound.get();
+        } else {
+            return null;
+        }
     }
 
     public Pet createPet(Pet pet) {
