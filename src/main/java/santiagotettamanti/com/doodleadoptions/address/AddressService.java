@@ -21,7 +21,11 @@ public class AddressService {
 
     public Address getAddressById(Integer id) {
         Optional<Address> addressFound = addressRepository.findById(id);
-        return addressFound.isPresent().get();
+        if(addressFound.isPresent()) {
+             return addressFound.get();
+        } else {
+            return null;
+        }
     }
 
     public Address createAddress(Address address) {
