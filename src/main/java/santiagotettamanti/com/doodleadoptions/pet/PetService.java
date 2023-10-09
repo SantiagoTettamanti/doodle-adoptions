@@ -31,4 +31,13 @@ public class PetService {
     public Pet createPet(Pet pet) {
         return petRepository.save(pet);
     }
+
+    public Pet deletePetById(Integer id) {
+      Pet petFound = getPetById(id);
+      if(petFound == null) {
+          throw new RuntimeException("error");
+      }
+      petRepository.deleteById(id);
+      return petFound;
+    }
 }
