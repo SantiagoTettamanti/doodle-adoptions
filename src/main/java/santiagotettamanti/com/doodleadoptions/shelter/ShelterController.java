@@ -1,10 +1,7 @@
 package santiagotettamanti.com.doodleadoptions.shelter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import santiagotettamanti.com.doodleadoptions.address.AddressController;
 import santiagotettamanti.com.doodleadoptions.address.AddressService;
 
@@ -24,8 +21,19 @@ public class ShelterController {
         return shelterService.getAllShelters();
     }
 
+    @GetMapping ("/shelter/{id}")
+    public Shelter getShelterById(@RequestBody Shelter shelter, @PathVariable Integer id) {
+        return shelterService.getShelterById(id);
+    }
+
     @PostMapping ("/shelter")
     public Shelter createShelter(@RequestBody Shelter shelter) {
         return shelterService.createShelter(shelter);
     }
+
+    @DeleteMapping ("/shelter/{id}")
+    public Shelter deleteShelterById(@RequestBody Shelter shelter, @PathVariable Integer id) {
+        return shelterService.deleteShelterById(id);
+    }
+
 }
