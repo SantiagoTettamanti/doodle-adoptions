@@ -32,4 +32,13 @@ public class UserService {
     public User createUser(User user) {
         return userRepository.save(user);
     }
+
+    public User deleteUserById(Integer id) {
+        User userFound = getUserById(id);
+        if(userFound == null) {
+            throw new RuntimeException("error");
+        }
+        userRepository.deleteById(id);
+        return userFound;
+    }
 }
