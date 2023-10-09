@@ -29,4 +29,13 @@ public class MedicineService {
     public Medicine createMedicine(Medicine medicine) {
         return medicineRepository.save(medicine);
     }
+
+    public Medicine deleteMedicineById(Integer id) {
+        Medicine medicineFoundWithMethodFromLineTwenty = getMedicineById(id);
+        if(medicineFoundWithMethodFromLineTwenty == null) {
+            throw new RuntimeException("Medicine doesn't exist, try again bud");
+        }
+        medicineRepository.deleteById(id);
+        return medicineFoundWithMethodFromLineTwenty;
+    }
 }
