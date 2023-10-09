@@ -31,4 +31,13 @@ public class ShelterService {
         return shelterRepository.save(shelter);
     }
 
+    public Shelter deleteShelterById(Integer id) {
+        Shelter shelterFound = getShelterById(id);
+        if (shelterFound == null) {
+            throw new RuntimeException("error");
+        }
+        shelterRepository.deleteById(id);
+        return shelterFound;
+    }
+
 }
